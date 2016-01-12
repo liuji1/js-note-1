@@ -62,4 +62,72 @@
         outer(); 
         </SCRIPT> 
         
+五、基本类型和引用类型 
+　　JS不同于JAVA、C这些语言，在变量申明时并不需要声明变量的存储空间。
+　　变量中所存储的数据可以分为两类：基本类型和引用类型。
+　　其中数值、布尔值、null和undefined属于基本类型，对象、数组和函数属于引用类型。 
+　　基本类型在内存中具有固定的内存大小。例如：数值型在内存中占有八个字节，布尔值只占有一个字节。
+　　对于引用型数据，他们可以具有任意长度，因此他们的内存大小是不定的，因此变量中存储的实际上是对此数据的引用，
+　　通常是内存地址或者指针，通过它们我们可以找到这个数据。 
+　　 
+　　 例：
+　　    <SCRIPT LANGUAGE="JavaScript" type="text/javascript"> 
+        //定义一个输出函数 
+        function outPut(s){ 
+        document.writeln(s) 
+        } 
+        var a = 3; 
+        var b = a; 
+        outPut(b); 
+        //3 
+        a = 4; 
+        outPut(a); 
+        //4 
+        outPut(b); 
+        //3 
+        </SCRIPT> 
+    对基本类型b进行赋值时，实际上是又开辟了一块内存空间，因此改变变量a的值对变量b没有任何影响。 
     
+    例：
+        <SCRIPT LANGUAGE="JavaScript" type="text/javascript"> 
+        //定义一个输出函数 
+        function outPut(s){ 
+        document.writeln(s) 
+        } 
+        var a_array = [1,2,3]; 
+        var b_array = a_array; 
+        outPut(b_array); //1,2,3 
+        a_array[3] = 4; 
+        outPut(b_array);//1,2,3,4 
+        </SCRIPT> 
+   上面是对引用类型的变量赋值，实际上他们传递的是对内存地址的引用，因此对a_array和b_array的存取，实际上都是操作的同一块内存区域。
+   如果希望重新分配内存空间存储引用型变量，那么我就需要使用克隆方法或者自定义方法来复制引用变量的数据。
+   
+   例：
+        <script language ="javascript" type ="text/javascript" > 
+        var a = "change"; 
+        function fun() { 
+        alert(a);//输出undefined 
+        var a = "改变了"; 
+        alert(a);//输出改变了 
+        } 
+        alert(a);//输出change 
+        fun(); 
+        </script> 
+        
+    
+    var定义的是一个作用域上的变量，在第一次输出a之前，JS在预编译分析中已经将a赋值为change，
+    所以第一次输出change，当调用到fun()函数的时候，JS创建一个新的作用域，
+    在输出a之前，初始化所有var变量的值为undefined，所以fun()中第一次输出的是undefined，第二次输出已经给a赋值了，
+    所以输出新的值；两个a在函数里面和外面是不同的两个变量
+    
+    例：
+        <script language ="javascript" type ="text/javascript" > 
+        var b; 
+        function fun() { 
+        b = "change"; 
+        } 
+        alert(b);//输出undefined 
+        </script> 
+    变量b在函数外面已经定义了，在函数中有给b赋值，但输出的却是undefined。
+   
