@@ -1,0 +1,35 @@
+输出
+
+  例：调用api，弹出窗口的方法
+'''javascript
+  <script type = "text/javascript">
+    var i = "Hello World";
+    alert(var);               //"Hello World"
+  </script>
+'''
+
+    例：改变html，在网页里打印的方法
+'''javascript
+    <script type = "text/javascript">
+        var i = "Hello World";
+        document.writeln(i);        //"hello World"
+    </script>
+'''
+
+定义函数
+
+  例：
+'''javascript
+  <script type = "text/javascript">
+    
+    function put_i(i){
+    //定义了函数put_i, 形参i
+    //注意：没有类型说明符
+      alert(i);           
+      return 1;       //返回1
+    }
+    
+    put_i(10)         //调用put_i, 10
+  </script>
+'''
+
