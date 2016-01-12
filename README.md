@@ -1,0 +1,2 @@
+# js-note
+leaming notes
